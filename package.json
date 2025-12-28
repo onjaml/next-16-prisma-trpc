@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "db:migrate": "npx prisma migrate dev --name user-entity --create-only && yarn prisma generate",
+    "db:migrate": "npx prisma migrate dev --name user--new-field-eamail --create-only && yarn prisma generate",
     "db:push": "npx prisma db push"
   },
   "dependencies": {
