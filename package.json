@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "db:migrate": "npx prisma migrate dev --name user--new-field-eamail --create-only && yarn prisma generate",
-    "db:push": "npx prisma db push"
+    "db:migrate": "npx prisma migrate dev --name user--new-field-up --create-only && yarn prisma generate",
+    "db:push": "npx prisma db push",
+    "db:seed": "npx prisma db seed",
+    "seed": "tsx src/infrastructure/prisma/seed.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -19,6 +21,7 @@
     "@trpc/client": "^11.8.1",
     "@trpc/react-query": "^11.8.1",
     "@trpc/server": "^11.8.1",
+    "awilix": "^12.0.5",
     "client-only": "^0.0.1",
     "next": "16.1.1",
     "react": "19.2.3",
@@ -38,8 +41,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
-    "prisma": "^6.19.1",
+    "prisma": "^7.2.0",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.8.2"
   }
 }
