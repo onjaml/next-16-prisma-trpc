@@ -36,9 +36,9 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 
-couche domaine 
+1️⃣ **Domain** – Le cœur ❤️
 
-👉 Rôle 
+### 👉 Rôle
 
   - aucune dependance technique 
 
@@ -48,7 +48,7 @@ couche domaine 
 
   - Testable sans DB 
 
-👉 Contient 
+### 👉 Contient
 
   - Entités 
 
@@ -60,9 +60,9 @@ couche domaine 
 
   
 
-Application 
+2️⃣ **Application**
 
-👉 Rôle 
+### 👉 Rôle
 
    - Orchestration des règles métier 
 
@@ -76,10 +76,29 @@ Application 
 
    - Dépend uniquement du Domain 
 
-👉 Contient 
+### 👉 Contient
 
    - Use cases 
 
    - DTOs 
 
    - Services applicatifs
+
+  
+
+# 3️⃣ **Infrastructure** – La technique 🔧
+
+### 👉 Rôle
+
+-   Implémenter les interfaces du Domain
+    
+-   Gérer la DB, APIs externes, cache, email…
+    
+
+### 👉 Contient
+
+-   Prisma
+    
+-   Repositories concrets
+    
+-   Adapters externes

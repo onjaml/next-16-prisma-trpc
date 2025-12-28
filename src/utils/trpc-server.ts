@@ -9,5 +9,6 @@ const trpc = initTRPC.create({
 export const {
   router:createTRPCRouter,
   procedure:baseProcedure,
-  createCallerFactory
+  createCallerFactory,
+  mergeRouters
 } = trpc
