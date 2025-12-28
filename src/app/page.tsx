@@ -3,7 +3,9 @@
 import { trpc } from '@/utils/trpc-client';
 
 export default function Test() {
-  let { data, isLoading, isFetching } = trpc.healthchecker.useQuery();
+  let { data, isLoading, isFetching } = trpc.healthchecker.useQuery({
+    text: "hello"
+  });
   if (isLoading || isFetching) return <p>Loading...</p>;
 
   return (
