@@ -36,27 +36,50 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 
-couche domaine
-  👉 Rôle
-    - aucune dependance technique
-    - Contient les règles métier
-    - Ne sait même pas que la base de données existe
-    - Testable sans DB
-  👉 Contient
-    - Entités
-    - Interfaces (ports)
-    - Erreurs métier
-    - Value Objects
+couche domaine 
 
-application 
-  👉 Rôle
-    - Orchestration des règles métier
-    - Cas d’usage (Use Cases)
-    - Coordination entre plusieurs repositories
-    - Pas de Prisma
-    - Pas de Next.js
-    - Dépend uniquement du Domain
-  👉 Contient
-    - Use cases
-    - DTOs
-    - Services applicatifs
+👉 Rôle 
+
+  - aucune dependance technique 
+
+  - Contient les règles métier 
+
+  - Ne sait même pas que la base de données existe 
+
+  - Testable sans DB 
+
+👉 Contient 
+
+  - Entités 
+
+  - Interfaces (ports)
+
+  - Erreurs métier 
+
+  - Value Objects 
+
+  
+
+Application 
+
+👉 Rôle 
+
+   - Orchestration des règles métier 
+
+   - Cas d’usage (Use Cases)
+
+   - Coordination entre plusieurs repositories 
+
+   - Pas de Prisma 
+
+   - Pas de Next.js 
+
+   - Dépend uniquement du Domain 
+
+👉 Contient 
+
+   - Use cases 
+
+   - DTOs 
+
+   - Services applicatifs
