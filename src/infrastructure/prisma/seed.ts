@@ -1,19 +1,19 @@
-import { container } from "@/server/lib/di/containter";
+import { container } from "@/infrastructure/di/containter";
 
 export default async function main() {
   // Exemple : création d’utilisateurs
-  const userRepository = container?.cradle?.userRepository
-  console.log("user",userRepository);
+  const scope = container.createScope()
+  const userRepository = scope?.resolve("userRepository")
   
   await userRepository.createMany(
     [
       {
-        email: 'admin@mail.com',
-        name: 'Admin',
+        email: 'admin2@mail.com',
+        name: 'Admin2',
       },
       {
-        email: 'user@mail.com',
-        name: 'User',
+        email: 'user2@mail.com',
+        name: 'User2',
         
       },
     ],

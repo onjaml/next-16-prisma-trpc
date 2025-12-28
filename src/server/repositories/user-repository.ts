@@ -1,5 +1,5 @@
 import { PrismaLike } from "@/infrastructure/prisma/prisma.type";
-import { UserCreateInput } from "@/infrastructure/prisma/generated/models";
+import { UserCreateInput } from "@/infrastructure/prisma/generated/prisma/models";
 import { CreateUserInput } from "../schema";
 export interface UserRepository {
     findById(id: string): Promise<any>
@@ -8,7 +8,10 @@ export interface UserRepository {
 }
 
 export class UserRepositoryImpl implements UserRepository {
-    constructor(private readonly prisma: PrismaLike) { }
+    private readonly prisma: PrismaLike
+    constructor({ prisma }: { prisma: PrismaLike }) {
+      this.prisma = prisma
+    }
 
     findById(id: string) {
         return  this.prisma.user.findUnique({
@@ -18,7 +21,7 @@ export class UserRepositoryImpl implements UserRepository {
         })
     }
 
-     create(user: UserCreateInput): Promise<Partial<UserCreateInput>> {
+    create(user: UserCreateInput): Promise<Partial<UserCreateInput>> {
         const restult =   this.prisma.user.create({
             data: user,
         })

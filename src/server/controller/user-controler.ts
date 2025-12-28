@@ -1,4 +1,4 @@
-import { container } from "../lib/di/containter"
+import { container } from "../../infrastructure/di/containter"
 import { CreateUserInput } from "../schema"
 
 export const createUserHandler = async(input:CreateUserInput) => {
