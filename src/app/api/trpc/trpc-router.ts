@@ -1,10 +1,10 @@
-import { trpc } from "@/utils/trpc-server";
+import { router,procedure } from "@/utils/trpc-server";
 
-export const appRouter = trpc.router({
-  healthchecker: trpc.procedure.query(({ ctx }) => {
+export const appRouter = router({
+  healthchecker: procedure.query(({ ctx }) => {
     return {
       status: "success",
-      message: "Welcome to trpc with Next.js 14 and React Query",
+      message: "Welcome to trpc with Next.js 16",
       ctx:ctx
     };
   }),
