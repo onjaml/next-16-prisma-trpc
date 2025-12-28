@@ -13,16 +13,3 @@ export default defineConfig({
     url: process.env["DATABASE_URL"],
   },
 });
-
-
-// export default defineConfig({
-//   schema: "src/infrastructure/prisma/schema.prisma",
-//   migrations: {
-//     path: "src/infrastructure/prisma/migrations",
-//     seed: "tsx src/infrastructure/prisma/seed.ts"
-//   },
-//   // engine: "classic",
-//   datasource: {
-//     url: env("DATABASE_URL"),
-//   },
-// });

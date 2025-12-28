@@ -1,24 +1,22 @@
-'use client';
-
-import main from '@/infrastructure/prisma/seed';
 import { trpc } from '@/utils/trpc-client';
-import { useEffect } from 'react';
+import { createSSRHelper } from './api/trpc/trpc-router';
+import QHydrate from '@/presentation/utils/hydrate-client';
+import UserForm from '@/presentation/components/user-form';
+import ListUsers from '@/presentation/components/list-users';
+import { dehydrate } from '@tanstack/react-query';
 
-export default function Test() {
-  let { data, isLoading, isFetching, isSuccess } = trpc.healthchecker.useQuery({
-    text: "hello"
-  });
-  if (isLoading || isFetching) return <p>Loading...</p>;
-
-  useEffect(() => {
-   if(isSuccess) {
-     main()
-   }
-  },[isSuccess])
+export default async function Home() {
+  const helpers = createSSRHelper();
+  await helpers.getUsers.prefetch({ limit: 10, page: 1 });
+  
   return (
-    <div className='text-xl font-bold'>
-      <h1>Status: {data?.status}</h1>
-      <h1>Message: {data?.message}</h1>
-    </div>
+    <QHydrate state={dehydrate(helpers.queryClient)}>
+      <main style={{ maxWidth: 1200, marginInline: 'auto', padding: 20 }}>
+        <div className='w-full flex justify-center mb-8'>
+          <UserForm />
+        </div>
+        <ListUsers />
+      </main>
+    </QHydrate>
   );
 }

@@ -1,8 +1,11 @@
-import { createTRPCRouter,baseProcedure } from "@/utils/trpc-server";
+import userRouter from "@/infrastructure/trpc/user-router";
+import { createTRPCRouter,baseProcedure,mergeRouters,trpc } from "@/utils/trpc-server";
+import { createServerSideHelpers } from '@trpc/react-query/server';
+import SuperJSON from "superjson";
 import { z } from 'zod'
 
 
-export const appRouter = createTRPCRouter({
+export const healthCheckerRouter = createTRPCRouter({
   healthchecker: baseProcedure
     .input(
         z.object({
@@ -17,5 +20,16 @@ export const appRouter = createTRPCRouter({
     };
   }),
 });
+export const appRouter = mergeRouters(
+  userRouter,
+  healthCheckerRouter
+);
+
+export const createSSRHelper = () =>
+  createServerSideHelpers({
+    router: appRouter,
+    transformer: SuperJSON,
+    ctx: () => {},
+  });
 
 export type AppRouter = typeof appRouter;
