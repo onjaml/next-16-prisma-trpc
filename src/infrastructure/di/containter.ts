@@ -18,5 +18,4 @@ container.register({
 
 export {
     container,
-    
 }
